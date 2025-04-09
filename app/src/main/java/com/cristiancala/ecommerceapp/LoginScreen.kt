@@ -28,9 +28,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
     Scaffold { innerPadding ->
         Column(
             modifier = Modifier
