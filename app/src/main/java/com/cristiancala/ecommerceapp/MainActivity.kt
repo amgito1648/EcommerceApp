@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.cristiancala.ecommerceapp.ui.theme.EcommerceAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +22,30 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EcommerceAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+
+                val myNavController = rememberNavController()
+                val myStartDestination: String = "login"
+                NavHost(
+                    navController = myNavController,
+                    startDestination = myStartDestination,
+                    modifier = Modifier.fillMaxSize()
+                )
+
+
+                {
+                    composable("login"){
+                        LoginScreen()
+                    }
+                    composable("register"){
+                        RegisterScreen()
+                    }
                 }
+
+
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EcommerceAppTheme {
-        Greeting("Android")
-    }
-}
+
