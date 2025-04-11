@@ -35,16 +35,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterScreen() {
+fun RegisterScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {},
                 navigationIcon = {
-                    IconButton(onClick = {}){
+                    IconButton(onClick = {
+                        navController.popBackStack()
+                    }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = null)
                     }
                 }
@@ -136,10 +139,13 @@ fun RegisterScreen() {
             }
 
 
-
-            @Preview
-            @Composable
-            fun RegisterScreenPreview() {
-                RegisterScreen()
-            }
         }
+    }
+
+}
+
+@Preview
+@Composable
+fun RegisterScreenPreview() {
+    //RegisterScreen()
+}

@@ -103,7 +103,9 @@ fun LoginScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-                onClick = {}, modifier = Modifier
+                onClick = {
+                    navController.navigate("home")
+                }, modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp),
                 shape = RoundedCornerShape(12.dp),
@@ -117,7 +119,9 @@ fun LoginScreen(navController: NavController) {
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            TextButton(onClick = {}) {
+            TextButton(onClick = {
+                navController.navigate("register")
+            }) {
                 Text(
                     text = "¿No tienes Cuenta?, Registrate",
                     color = Color(0xFFFF9900)
@@ -131,5 +135,5 @@ fun LoginScreen(navController: NavController) {
 @Preview
 @Composable
 fun LoginScreenPreview() {
-    LoginScreen()
+    //LoginScreen()
 }
