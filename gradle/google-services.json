@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "650966828522",
+    "project_id": "ecommerceapp-8fea3",
+    "storage_bucket": "ecommerceapp-8fea3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650966828522:android:34c5806ee51dff390c1e93",
+        "android_client_info": {
+          "package_name": "com.cristiancala.ecommerceapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW-k1XNdEnDLLG6FwlD-KRmKcqQ--NhKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
