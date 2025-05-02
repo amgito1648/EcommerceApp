@@ -36,10 +36,23 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.rememberAsyncImagePainter
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen() {
+
+    val auth = Firebase.auth
+    val user = auth.currentUser
+
+    if (user != null){
+        Text(user.email.toString())
+
+    }else{
+        Text("No hay usuario")
+    }
+
     Scaffold(
         topBar = {
             val scrollBehavior =
@@ -116,6 +129,8 @@ fun HomeScreen() {
     }
 
 }
+
+
 
 @Preview
 @Composable
