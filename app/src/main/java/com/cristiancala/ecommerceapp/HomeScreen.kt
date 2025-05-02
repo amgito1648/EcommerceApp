@@ -17,6 +17,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -30,6 +32,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -41,17 +44,10 @@ import com.google.firebase.auth.auth
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(onClickLogout:()->Unit= {}) {
 
     val auth = Firebase.auth
     val user = auth.currentUser
-
-    if (user != null){
-        Text(user.email.toString())
-
-    }else{
-        Text("No hay usuario")
-    }
 
     Scaffold(
         topBar = {
@@ -90,6 +86,25 @@ fun HomeScreen() {
         }
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
+
+
+            if (user != null){
+                Text(user.email.toString())
+
+            }else{
+                Text("No hay usuario")
+            }
+            Button(
+                onClick = {
+                    auth.signOut()
+                    onClickLogout()
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFFF9900)
+                )
+            ){
+                Text("Cerrar Sesion")
+            }
 
             Text(
                 text = "Promociones",
